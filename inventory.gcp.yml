@@ -1,0 +1,7 @@
+---
+plugin: gcp_compute
+projects:
+  - google.com:automation-demo-216213
+filters:
+auth_kind: serviceaccount
+service_account_file: /mnt/c/Users/jose.mussauer/Projetos/gcp-ansible-automation/credentials.json

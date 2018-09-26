@@ -1,0 +1,7 @@
+---
+auth_kind: serviceaccount
+service_account_email: conta-demo@automation-demo-216213.iam.gserviceaccount.com
+credential_file: /mnt/c/Users/jose.mussauer/Projetos/gcp-ansible-automation/credentials.json
+project: automation-demo-216213
+scopes:
+  - www.googleapis.com/auth/compute
