@@ -1,5 +1,5 @@
 ---
-- name: "Playbook de criação de instância"
+- name: "Playbook for create instance"
   hosts: localhost
   connection: local
   gather_facts: no
@@ -13,15 +13,15 @@
     zone: us-central1-a
   
   tasks:
-  - name: "Criação de instancia GCP" 
+  - name: "Create GCP instance" 
     gce:
       instance_names: "{{ instance_name_1 }},{{ instance_name_2 }}"
       zone: "{{ zone }}"
       machine_type: "{{ machine_type }}"
       state: present
-      tags:
-        - mongodb
-        - criada-via-iac
+      #tags:
+        # - mongodb
+        # - criada-via-iac
       image: "{{ image }}"
       disk_auto_delete: true
       ip_forward: true
@@ -30,7 +30,7 @@
       project_id: "{{ project_id }}"
     register: gce
 
-  - name: "Criação de disco da instancia 1" 
+  - name: "Create disk for instance 1" 
     gce_pd:
       instance_name: "{{ instance_name_1 }}"
       delete_on_termination: yes
@@ -43,7 +43,7 @@
       credentials_file: "{{ credentials_file }}"
       project_id: "{{ project_id }}"
 
-  - name: "Criação de disco da instancia 2" 
+  - name: "Create disk for instance 2" 
     gce_pd:
       instance_name: "{{ instance_name_2 }}"
       delete_on_termination: yes
@@ -56,6 +56,6 @@
       credentials_file: "{{ credentials_file }}"
       project_id: "{{ project_id }}"
 
-  - name: "Esperando o SSH ficar ativo"
+  - name: "Waiting SSH"
     wait_for: host={{ item.public_ip }} port=22 delay=10 timeout=60
     with_items: "{{ gce.instance_data }}"

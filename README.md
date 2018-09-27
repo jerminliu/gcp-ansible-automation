@@ -1,7 +1,10 @@
-Infrastructure Automation with Ansible on GCP
+# Infrastructure Automation with Ansible on GCP
 
-Using the playbook:
+## Purpose
 
-ansible-playbook --extra-vars "instance_name_1=instance01 instance_name_2=instance02" criainstancia.yml
+This repository contains a set of scripts for deploying a complete environment in Google Cloud - GCP
 
-Adicionando linha.
+## Using the playbook:
+
+'ansible-playbook --extra-vars "instance_name_1=instance01 instance_name_2=instance02" criainstancia.yml'
+
